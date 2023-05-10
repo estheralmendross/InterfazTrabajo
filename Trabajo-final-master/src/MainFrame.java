@@ -35,6 +35,8 @@ public class MainFrame extends JFrame{
     private JRadioButton hub1;
     private JRadioButton hub2;
     private JRadioButton hub3;
+    private JComboBox desapilaCombo;
+    private JTextField textDesapila;
 
 
     public MainFrame ()
@@ -51,6 +53,8 @@ public class MainFrame extends JFrame{
         puerto.añadirbarco();
 
 
+        desapilaCombo.setVisible(false);
+        textDesapila.setVisible(false);
         textohub.setVisible(false);
         hub1.setVisible(false);
         hub2.setVisible(false);
@@ -82,6 +86,8 @@ public class MainFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                desapilaCombo.setVisible(false);
+                textDesapila.setVisible(false);
                 textohub.setVisible(true);
                 hub1.setVisible(true);
                 hub2.setVisible(true);
@@ -138,9 +144,11 @@ public class MainFrame extends JFrame{
                 campoDesc.setVisible(false);
                 textodescripicion.setVisible(false);
                 checkaduanas.setVisible(false);
-                campocolumna.setVisible(true);
-                textocolumna.setVisible(true);
+                campocolumna.setVisible(false);
+                textocolumna.setVisible(false);
                 botonok.setVisible(true);
+                textDesapila.setVisible(true);
+                desapilaCombo.setVisible(true);
                 printder.setText("");
                 confirmar_boton[0]=2;
             }
@@ -149,6 +157,8 @@ public class MainFrame extends JFrame{
         mostrarDatosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                desapilaCombo.setVisible(false);
+                textDesapila.setVisible(false);
                 textohub.setVisible(true);
                 hub1.setVisible(true);
                 hub2.setVisible(true);
@@ -181,6 +191,9 @@ public class MainFrame extends JFrame{
         procedenciaPorPaísButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                desapilaCombo.setVisible(false);
+                textDesapila.setVisible(false);
                 textohub.setVisible(false);
                 hub1.setVisible(false);
                 hub2.setVisible(false);
@@ -254,8 +267,14 @@ public class MainFrame extends JFrame{
                         break;
 
                     case 2:
-                        int columna = Integer.parseInt(campocolumna.getText());
-                        printder.setText(puerto.desapila(columna,indice));
+                        if (desapilaCombo.getSelectedItem().toString().equals("Identificador")){
+                            id = Integer.parseInt(textDesapila.getText());
+                            printder.setText(puerto.desapilaPorId(id, indice));
+                        }
+                        else {
+                            int columna = Integer.parseInt(textDesapila.getText());
+                            printder.setText(puerto.desapila(columna,indice));
+                        }
                         print.setText(puerto.toStringPuerto());
                         break;
 
