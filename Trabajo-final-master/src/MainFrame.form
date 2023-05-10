@@ -286,7 +286,7 @@
       <component id="6b345" class="javax.swing.JTextArea" binding="printder">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="80" height="25"/>
+            <preferred-size width="50" height="25"/>
           </grid>
         </constraints>
         <properties>

@@ -263,8 +263,8 @@ public class MainFrame extends JFrame{
                         int id1 = Integer.parseInt(campoID.getText());
                         printder.setText(puerto.MostrarDatos(id1,indice));
                         break;
+                        
                     case 4:
-
                         String pais2 = campoPais.getText();
                         printder.setText(String.valueOf(puerto.contenedoresPais(pais2)));
                         break;
